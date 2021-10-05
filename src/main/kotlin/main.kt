@@ -1,3 +1,9 @@
 fun main() {
-    println("Hello world")
+    println("Rock, Paper, Scissor")
+
+    val playerOne = listOf(Rock, Paper, Scissor)
+
+    println(playerOne.random())
 }
+
+
