@@ -1,17 +1,17 @@
 fun main(){
     println("Which country has black, yellow and red flag?");
-
     challengeOne()
 }
 
 fun challengeOne(){
-    val correctAnswer = setOf<Strings>("Belgium", "German")
+    // TODO: (Error) Val correctAnswer = setOf<string>("Belgium", "German")
+    val correctAnswer = setOf<string>("Belgium", "German")
     val playerAnwser = readLine();
     if (playerAnwser == correctAnswer){ // if equal
         println("Correct answer!")
         main()
     }
-    else (playerAnwser != correctAnswer){ // if not equal
+    if (playerAnwser != correctAnswer){ // if not equal (can't use 'else')
         gameOver()
     }
 
