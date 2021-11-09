@@ -1,9 +1,8 @@
 fun main() {
-    val personRand = arrayOf(Person("Mark"),Person("Jason"))
-    // val Persons: Arrays<Person> => Kotlin See
-    // val Persons = arrayOf("Mark","Jason") => Works with strings
+    val personRand = arrayOf(Student("Mark"),Teacher("Mike"),Comedian("Jason"))
 
-    val persons = personRand.random() // Add dot Random to person "random()" to randomise
+    val persons = personRand.random()
 
     persons.introduce()
+    persons.talk()
 }
