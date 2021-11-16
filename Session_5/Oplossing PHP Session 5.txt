@@ -1,0 +1,92 @@
+Eerst Oefening
+
+[Search the specific Numbers]
+SELECT productName FROM products
+WHERE productCode = 'S24_3856'
+
+OP: 1956 Porsche 356A Coupe
+
+[Search Average]
+SELECT AVG(buyPrice) FROM products;
+
+OP: 54.395182
+
+[Search Name "Specific Name  in the product"]
+SELECT productName FROM products WHERE productName like "%Ford%"
+
+OP:
+1968 Ford Mustang
+1969 Ford Falcon
+1940 Ford Pickup Truck
+1911 Ford Town Car
+1932 Model A Ford J-Coupe
+1926 Ford Fire Engine
+1913 Ford Model T Speedster
+1934 Ford V8 Coupe
+1903 Ford Model A
+1976 Ford Gran Torino
+1940s Ford truck
+1957 Ford Thunderbird
+1912 Ford Model T Delivery Wagon
+1940 Ford Delivery Sedan
+1928 Ford Phaeton Deluxe
+
+
+[Min & Max]
+SELECT MAX(buyPrice) FROM products;
+[Equal to "type/name"]
+SELECT productName from products WHERE productLine = 'ships';
+
+OP:
+1999 Yamaha Speed Boat
+18th century schooner
+The Schooner Bluenose
+The Mayflower
+HMS Bounty
+The USS Constitution Ship
+The Titanic
+The Queen Mary
+Pont Yacht
+
+Second Oefening
+[How many orders from one customers (Numbers)]
+SELECT COUNT(customerNumber) FROM orders WHERE customerNumber = '328';
+// You only take from one data
+
+OP: 3
+
+[Orders from one customers]
+1.1)
+SELECT* from orders
+(INNER JOIN customers)
+
+1.2) 
+SELECT * FROM orders
+INNER JOIN customers ON orders.customerNumber = customers.customerNumber
+WHERE customers.contactFirstName = "julie" AND customers.contactLastName ="Young";
+
+1.3) Add count
+SELECT COUNT(*) as amount FROM orders
+INNER JOIN customers ON orders.customerNumber = customers.customerNumber
+WHERE customers.contactFirstName = "julie" AND customers.contactLastName ="Young";
+// You take from two datas
+(INNER (always best option))
+
+[Count total customers that has same amount of credits]
+COUNT total creditLimit of 0 in USA
+SELECT COUNT(*) FROM customers WHERE creditLimit = '0';
+
+OP: 24
+
+[Count total (Max) average from all customers]
+1.1) 
+SELECT AVG(amout)* From customers
+INNER JOIN payments ON payments.customerNumber = customers.customerNumber
+1.2) 
+SELECT AVG(amount) AS average, customers.customerName From customers
+INNER JOIN payments ON payments.customerNumber = customers.customerNumber
+GROUP BY customers.customerNumber
+ORDER BY average DESC
+LIMIT 1
+
+OP: 80375.240000
