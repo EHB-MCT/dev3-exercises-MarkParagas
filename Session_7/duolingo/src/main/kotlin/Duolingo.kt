@@ -1,18 +1,18 @@
 class Duolingo ( // <= constructor
-    val roundSize: Int = 5, // default = 5
+    val round: Int = 5, // default = 5
     val language: String = "en") // default = en / english
 {
     var words = mutableListOf<Word>( // var gebruiken
-        Word("hello", "hallo", "en"),
-        Word("goodmorning", "goedemorgen", "en"),
-        Word("you", "jij", "en"),
-        Word("me", "ik", "en"),
-        Word("he", "hij", "en"),
-        Word("hey", "hallo", "ge"),
-        Word("guten morgen", "goedemorgen", "ge"),
-        Word("Sie", "jij", "ge"),
-        Word("mich", "ik", "ge"),
-        Word("er", "hij", "ge")
+        EnglishWord("hello", "hallo"),
+        EnglishWord("goodmorning", "goedemorgen"),
+        EnglishWord("you", "jij"),
+        EnglishWord("me", "ik"),
+        EnglishWord("he", "hij"),
+        GermanWord("hey", "hallo"),
+        GermanWord("guten morgen", "goedemorgen"),
+        GermanWord("Sie", "jij"),
+        GermanWord("mich", "ik"),
+        GermanWord("er", "hij")
     )
 
     init { // filteren van language | [it] expect same type
@@ -28,7 +28,7 @@ class Duolingo ( // <= constructor
         // val randomWords = words.random()
         // val numberOfWords = roundSize
 
-        val currentWords = words.take(roundSize) .toMutableSet()//[Take] It will take five words in the sets
+        val currentWords = words.take(round) .toMutableSet()//[Take] It will take five words in the sets
         // toMutableSet() able to change
         println(currentWords.count())
 
